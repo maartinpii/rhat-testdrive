@@ -14,16 +14,17 @@
     GCE_PROJECT:
     GCE_CREDENTIALS_FILE_PATH:
     GCE_EMAIL:
-    
+
 
 
   tasks:
     - name: Create an IP address for first instance
       gcp_compute_address:
+        auth_kind: serviceaccount
         name: "{{ name_zonea }}-ip"
         region: "{{ region }}"
         project: "{{ GCE_PROJECT }}"
-        service_account_file: "{{ GCE_CREDENTIALS_FILE_PATH }}"
+        credentials_file: "{{ GCE_CREDENTIALS_FILE_PATH }}"
         service_account_email: "{{ GCE_EMAIL }}"
       register: gcea_ip
     - name: Bring up the first instance in the first zone.
