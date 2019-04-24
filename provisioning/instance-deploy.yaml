@@ -11,6 +11,9 @@
     GCE_CREDENTIALS_FILE_PATH:
     GCE_PROJECT:
     instance_name:
+    disk_size:
+    machine_type:
+    zone:
     tags:
 
   tasks:
@@ -21,6 +24,9 @@
           service_account_email: "{{ gce_email }}"
           credentials_file: "{{ GCE_CREDENTIALS_FILE_PATH }}"
           project_id: "{{ GCE_PROJECT }}"
+          zone: "{{ zone }}"
+          disk_size: "{{ disk_size }}"
+          machine_type: "{{ machine_type }}"
           tags: "{{ tags }}"
       register: gce
 
