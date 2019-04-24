@@ -29,7 +29,3 @@
           machine_type: "{{ machine_type }}"
           tags: "{{ tags }}"
       register: gce
-
-    - name: Wait for ssh to come up
-      wait_for: host={{ item.public_ip }} port=22 delay=10 timeout=60 ansible_user=ansiblegce
-      with_items: "{{ gce.instance_data}}"
