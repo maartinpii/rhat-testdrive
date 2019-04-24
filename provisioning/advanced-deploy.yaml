@@ -7,9 +7,14 @@
     name_zonea:
     name_zoneb:
     image:
-    zone:
+    zonea:
+    zoneb:
     region:
     machine_type:
+    GCE_PROJECT:
+    GCE_CREDENTIALS_FILE_PATH:
+    GCE_EMAIL:
+    
 
 
   tasks:
@@ -39,7 +44,7 @@
           items:
             - http-server
             - https-server
-        zone: "{{ zone }}"
+        zone: "{{ zonea }}"
         project: "{{ GCE_PROJECT }}"
         service_account_file: "{{ GCE_CREDENTIALS_FILE_PATH }}"
         service_account_email: "{{ GCE_EMAIL }}"
@@ -70,7 +75,7 @@
           items:
             - http-server
             - https-server
-        zone: "{{ zone }}"
+        zone: "{{ zoneb }}"
         project: "{{ GCE_PROJECT }}"
         service_account_file: "{{ GCE_CREDENTIALS_FILE_PATH }}"
         service_account_email: "{{ GCE_EMAIL }}"
