@@ -7,20 +7,20 @@
   vars:
     machine_type:
     image:
-#    service_account_email:
-#    credentials_file:
-    project_id:
+    GCE_EMAIL:
+    GCE_CREDENTIALS_FILE_PATH:
+    GCE_PROJECT:
     instance_name:
     tags:
 
   tasks:
     - name: Launch instance
       gce:
-          instance_names: "{{ instance_name }}"
+          instance_names: "{{ GCE_EMAIL }}"
           image: "{{ image }}"
-#          service_account_email: "{{ service_account_email }}"
-#          credentials_file: "{{ credentials_file }}"
-          project_id: "{{ project_id }}"
+          service_account_email: "{{ gce_email }}"
+          credentials_file: "{{ GCE_CREDENTIALS_FILE_PATH }}"
+          project_id: "{{ GCE_PROJECT }}"
           tags: "{{ tags }}"
       register: gce
 
