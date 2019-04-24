@@ -1,7 +1,7 @@
 ---
 - name: instance basic deploy
   hosts: localhost
-  garther_facts: no
+  gather_facts: no
   connection: local
 
   vars:
