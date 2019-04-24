@@ -14,5 +14,8 @@
   tasks:
     - name: start instance
       zone: "{{ zone }}"
-      name: {{ instance_name }}
+      service_account_email: "{{ GCE_EMAIL }}"
+      credentials_file: "{{ GCE_CREDENTIALS_FILE_PATH }}"
+      project_id: "{{ GCE_PROJECT }}"
+      name: "{{ instance_name }}"
       state: stopped
