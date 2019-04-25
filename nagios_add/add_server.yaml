@@ -1,6 +1,7 @@
 ---
 - name: instance basic deploy
   hosts: "{{ nagios_host }}"
+  gather_facts: yes
 
   vars:
     instance_name:
@@ -26,13 +27,15 @@
         regexp: '^#cfg_dir=/usr/local/nagios/etc/servers'
         replace: 'cfg_dir=/usr/local/nagios/etc/servers'
       when: serversdir.stat.exists == True
-    - name: Gather facts from new server
-      setup:
-        filter: ansible_default_ipv4.address
+
+  #  - name: Gather facts from new server
+  #    setup:
+#        filter: ansible_default_ipv4.address
+
     - name: create server file
       template:
         src: templates/hosts.j2
-        dest: /usr/local/nagios/etc/servers/"{{ instance_name}}".cfg
+        dest: /usr/local/nagios/etc/servers/"{{ instance_name }}".cfg
         owner: nagios
         group: nagios
         mode: 755

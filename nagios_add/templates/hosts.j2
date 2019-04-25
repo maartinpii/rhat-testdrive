@@ -3,7 +3,7 @@ define host{
         use linux-server
         host_name {{ instance_name }}
         alias {{ instance_name }}
-        address {{ ansible_default_ipv4.address }}
+        address {{ ansible_eth0.ipv4.address}}
 }
 
 define service {
