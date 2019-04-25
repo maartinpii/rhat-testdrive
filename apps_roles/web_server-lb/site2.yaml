@@ -13,4 +13,4 @@
 
 
   roles:
-    - gce_deploy
+    - gce_lamp
