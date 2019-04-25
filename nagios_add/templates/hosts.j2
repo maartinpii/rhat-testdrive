@@ -4,7 +4,6 @@ define host{
         host_name {{ instance_name }}
         alias {{ instance_name }}
         address {{ ansible_eth0.ipv4.address}}
-        #address 10.10.1.20
 }
 
 define service {

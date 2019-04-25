@@ -4,7 +4,7 @@
   gather_facts: yes
 
   vars:
-    instance_name:
+#    instance_name:
 
   tasks:
 
@@ -35,7 +35,7 @@
     - name: create server file
       template:
         src: templates/hosts.j2
-        dest: /usr/local/nagios/etc/servers/"{{ instance_name }}".cfg
+        dest: "/usr/local/nagios/etc/servers/{{ instance_name }}.cfg"
         owner: nagios
         group: nagios
         mode: 755
