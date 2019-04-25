@@ -2,8 +2,6 @@
 
 
 - name: Launch instance
-  hosts: localhost
-  connection: local
   gce:
       instance_names: "{{ instance_namea }}, {{ instance_nameb }}, {{ instance_namec }}"
       image: "{{ image }}"
