@@ -1,0 +1,3 @@
+- hosts: all
+  tasks:
+    - template: src=envip.j2 dest=/tmp/envip.conf

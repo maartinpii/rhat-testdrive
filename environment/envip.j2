@@ -1,0 +1,3 @@
+{% for host in groups['southamerica-east1-a'] %}
+   {{ hostvars[host]['ansible_eth0']['ipv4']['address'] }}
+{% endfor %}
