@@ -18,7 +18,7 @@
         state: directory
         owner: nagios
         group: nagios
-        mode: 755
+        mode: 0755
       when: serversdir.stat.exists == False
 
     - name: Enable Directory file
@@ -38,7 +38,7 @@
         dest: "/usr/local/nagios/etc/servers/{{ instance_name }}.cfg"
         owner: nagios
         group: nagios
-        mode: 755
+        mode: 0755
 
     - name: restart nagios
       service:
