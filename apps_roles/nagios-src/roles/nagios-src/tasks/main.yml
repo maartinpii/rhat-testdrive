@@ -179,6 +179,15 @@
 - name: Copy check_nrpe
   shell: cp {{ ansible_env['HOME'] }}/nagios/{{ nrpesrc }}/src/check_nrpe /usr/local/nagios/libexec/check_nrpe creates=/usr/local/nagios/libexec/check_nrpe
 
+- name: Disable SELinux
+  selinux:
+    state: disabled
+
+- name: Selinux Permissive
+  selinux:
+    policy: targeted
+    state: permissive
+
 - name: Ensure Nagios is started
   service: name=nagios state=started enabled=yes
 
@@ -187,7 +196,7 @@
   #file: src=/etc/init.d/nagios dest=/etc/rc2.d/S99nagios state=link owner=root group=root
   when: is_debian
 
-- name: Check if SELinux is running in enforcing mode and change access
-  file: path=/usr/local/nagios setype=httpd_sys_content_t state=directory recurse=yes
-  when: ansible_selinux != False and ansible_selinux.mode == "enforcing"
 
+#- name: Check if SELinux is running in enforcing mode and change access
+#  file: path=/usr/local/nagios setype=httpd_sys_content_t state=directory recurse=yes
+#  when: ansible_selinux != False and ansible_selinux.mode == "enforcing"
