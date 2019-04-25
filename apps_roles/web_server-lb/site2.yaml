@@ -1,12 +1,12 @@
 ---
 - name: Deploy LAMP and LB
-  hosts: "{{ instance_namea }}","{{ instance_nameb }}","{{ instance_namec }}"
+  hosts: "{{ instance_namea }}, {{ instance_nameb }}, {{ instance_namec }}"
 
   vars:
     instance_namea:
     instance_nameb:
     instance_namec:
-      
+
   vars_files:
 
 
