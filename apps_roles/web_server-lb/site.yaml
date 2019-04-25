@@ -1,0 +1,12 @@
+---
+- name: Deploy Web Servers + LB
+  hosts: localhost
+  connection: local
+
+  vars:
+
+  vars_files:
+
+
+  roles:
+    - gce_lamp

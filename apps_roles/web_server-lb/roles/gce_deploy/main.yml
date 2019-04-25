@@ -1,0 +1,17 @@
+---
+
+
+- name: Launch instance
+  hosts: localhost
+  connection: local
+  gce:
+      instance_names: "{{ instance_name }}"
+      image: "{{ image }}"
+      service_account_email: "{{ GCE_EMAIL }}"
+      credentials_file: "{{ GCE_CREDENTIALS_FILE_PATH }}"
+      project_id: "{{ GCE_PROJECT }}"
+      zone: "{{ zone }}"
+      disk_size: "{{ disk_size }}"
+      machine_type: "{{ machine_type }}"
+      tags: "{{ tags }}"
+  register: gce

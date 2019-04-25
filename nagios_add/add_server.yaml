@@ -1,0 +1,42 @@
+---
+- name: instance basic deploy
+  hosts: "{{ instance_name }}"
+
+  vars:
+
+  tasks:
+
+    - name: Check if Server Dir exist
+      stat:
+        path: /usr/local/nagios/etc/servers
+      register: servers-dir
+    - name: Create Directory
+      file:
+        path: /usr/local/nagios/etc/servers
+        state: directory
+        owner: nagios
+        group: nagios
+        mode: 755
+      when: servers-dir.stat.exists == True
+
+     - name: Enable Directory file
+       replace:
+         dest: /usr/local/nagios/etc/nagios.cfg
+         regexp: '^#cfg_dir=/usr/local/nagios/etc/servers'
+         replace: 'cfg_dir=/usr/local/nagios/etc/servers'
+       when: servers-dir.stat.exists == True
+     - name: Gather facts from new server
+       setup:
+          filter: ansible_default_ipv4.address
+      - name: create server file
+        template:
+          src: templates/hosts.j2
+          dest: /usr/local/nagios/etc/servers/"{{ instance_name}}".cfg
+          owner: nagios
+          group: nagios
+          mode: 755
+
+      - name: restart nagios
+        service:
+          name: nagios
+          state: restarted
