@@ -1,0 +1,15 @@
+---
+
+
+- name: Create Load Balancer
+  gce_lb:
+         name: "{{ lb-name }}"
+         region: "{{ region }}"
+         members: "{{zone}}/{{instance_namea}},{{zone}}/{{instance_nameb}},{{zone}}/{{instance_namec}},"
+         port_range: 80
+         httphealthcheck_name: hc
+         httphealthcheck_port: 80
+         httphealthcheck_path: "/"
+         service_account_email: "{{ GCE_EMAIL }}"
+         credentials_file: "{{ GCE_CREDENTIALS_FILE_PATH }}"
+         project_id: "{{ GCE_PROJECT }}"

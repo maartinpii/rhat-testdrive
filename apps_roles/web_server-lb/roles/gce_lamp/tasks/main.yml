@@ -26,7 +26,7 @@
     - restart apache2
 
 - name: create virtual host file
-  template: src=virtualhost.conf dest=/etc/apache2/sites-available/{{ domain }}.conf
+  template: src=templates/virtualhost.conf dest=/etc/apache2/sites-available/{{ domain }}.conf
 
 - name: a2ensite {{ domain }}
   command: a2ensite {{ domain }}
