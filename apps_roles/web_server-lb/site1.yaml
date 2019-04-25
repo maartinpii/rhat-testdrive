@@ -7,6 +7,15 @@
     instance_namea:
     instance_nameb:
     instance_namec:
+    image:
+    GCE_EMAIL:
+    GCE_CREDENTIALS_FILE_PATH:
+    GCE_PROJECT:
+    zone:
+    disk_size:
+    machine_type:
+    tags:
+
 
   vars_files:
 
