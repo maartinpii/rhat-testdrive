@@ -19,14 +19,14 @@
         owner: nagios
         group: nagios
         mode: 755
-      when: serversdir.stat.exists == True
+      when: serversdir.stat.exists == False
 
     - name: Enable Directory file
       replace:
         dest: /usr/local/nagios/etc/nagios.cfg
         regexp: '^#cfg_dir=/usr/local/nagios/etc/servers'
         replace: 'cfg_dir=/usr/local/nagios/etc/servers'
-      when: serversdir.stat.exists == True
+      when: serversdir.stat.exists == False
 
   #  - name: Gather facts from new server
   #    setup:
