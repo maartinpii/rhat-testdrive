@@ -5,7 +5,7 @@
   hosts: localhost
   connection: local
   gce:
-      instance_names: "{{ instance_namea }}","{{ instance_nameb }}","{{ instance_namec }}"
+      instance_names: "{{ instance_namea }}, {{ instance_nameb }}, {{ instance_namec }}"
       image: "{{ image }}"
       service_account_email: "{{ GCE_EMAIL }}"
       credentials_file: "{{ GCE_CREDENTIALS_FILE_PATH }}"
