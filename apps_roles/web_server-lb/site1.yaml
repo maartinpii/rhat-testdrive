@@ -1,0 +1,15 @@
+---
+- name: Deploy LAMP and LB
+  hosts: localhost
+  connection: local
+
+  vars:
+    instance_namea:
+    instance_nameb:
+    instance_namec:
+
+  vars_files:
+
+
+  roles:
+    - gce_deploy

@@ -1,0 +1,14 @@
+---
+- name: Deploy LAMP and LB
+  hosts: "{{ instance_namea }}","{{ instance_nameb }}","{{ instance_namec }}"
+
+  vars:
+    instance_namea:
+    instance_nameb:
+    instance_namec:
+      
+  vars_files:
+
+
+  roles:
+    - gce_deploy
