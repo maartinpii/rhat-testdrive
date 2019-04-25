@@ -19,4 +19,4 @@
 
 
   roles:
-    - gce_deploy
+    - gce_lb
