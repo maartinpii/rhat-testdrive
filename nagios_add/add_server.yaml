@@ -1,8 +1,9 @@
 ---
 - name: instance basic deploy
-  hosts: "{{ instance_name }}"
+  hosts: "{{ nagios_host }}"
 
   vars:
+    instance_name:
 
   tasks:
 
