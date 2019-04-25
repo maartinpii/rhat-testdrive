@@ -40,7 +40,3 @@
 
 - name: start mysql-server
   service: name=mysql state=started enabled=true
-
-handlers:
-- name: restart apache2
-  service: name=apache2 state=restarted
